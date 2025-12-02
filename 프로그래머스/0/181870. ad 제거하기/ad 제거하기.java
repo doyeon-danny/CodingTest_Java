@@ -1,19 +1,19 @@
+import java.util.ArrayList;
+
 class Solution {
     public String[] solution(String[] strArr) {
-        String[] answer = new String[strArr.length];
-        
+        ArrayList<String> arr = new ArrayList<>();
         int cnt = 0;
         for (int i=0; i<strArr.length; i++) {
-            // System.out.println(i);
             if (!strArr[i].contains("ad")) {
-                answer[cnt++] = strArr[i];
-            }
-            
+                arr.add(strArr[i]);
+            }   
         }
-        String[] result = new String[cnt];
-        for (int i=0; i<cnt; i++) {
-            result[i] = answer[i];
+        String[] answer = new String[arr.size()];
+        
+        for (int i=0; i<arr.size(); i++) {
+            answer[i] = arr.get(i);
         }
-        return result;
+        return answer;
     }
 }
