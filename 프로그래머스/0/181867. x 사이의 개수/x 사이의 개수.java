@@ -1,16 +1,16 @@
 import java.util.*;
 class Solution {
     public int[] solution(String myString) {
-        String[] str = myString.split("x");
+        String[] str = myString.split("x", -1);
         ArrayList<Integer> arr = new ArrayList<>();
         
         for (int i=0; i<str.length; i++) {
             arr.add(str[i].length());
         }
         
-        if (String.valueOf(myString.charAt(myString.length()-1)).equals("x")) {
-            arr.add(0);
-        }
+        // if (String.valueOf(myString.charAt(myString.length()-1)).equals("x")) {
+        //     arr.add(0);
+        // }
         
         int[] answer = new int[arr.size()];
         for (int i=0; i<arr.size(); i++) {
