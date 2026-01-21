@@ -9,6 +9,9 @@ public class Main {
 	static int[][] f_visit;
 	static ArrayDeque<int[]> s;
 	static ArrayDeque<int[]> f;
+	static final int[] dx = {-1, 1, 0, 0};
+	static final int[] dy = {0, 0, -1, 1};
+	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
@@ -50,12 +53,9 @@ public class Main {
 			int fx = fcur[0];
 			int fy = fcur[1];
 			
-			int[] fdx = {-1, 1, 0, 0};
-			int[] fdy = {0, 0, -1, 1};
-			
 			for (int i = 0; i < 4; i++) {
-				int fnx = fx + fdx[i];
-				int fny = fy + fdy[i];
+				int fnx = fx + dx[i];
+				int fny = fy + dy[i];
 				
 				// 배열 범위 초과 체크 
 				if (fnx < 0 || fnx >= w || fny < 0 || fny >= h) {
@@ -82,8 +82,6 @@ public class Main {
 				return;
 			}
 			
-			int[] dx = {-1, 1, 0, 0};
-			int[] dy = {0, 0, -1, 1};
 			
 			for (int i = 0; i < 4; i++) {
 				int nx = x + dx[i];
