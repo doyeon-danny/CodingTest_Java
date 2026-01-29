@@ -11,15 +11,8 @@ public class Main {
             int w = Integer.parseInt(st.nextToken());
             int n = Integer.parseInt(st.nextToken());
             
-            int a;
-            int r;
-            if (n % h == 0) {
-            	r = h;
-            	a = n / h;
-            } else {
-            	r = n % h;            	
-            	a = n / h + 1;
-            }
+            int r = (n - 1) % h + 1;
+            int a = (n - 1) / h + 1;
             
             System.out.println(r + String.format("%02d", a));
         }
