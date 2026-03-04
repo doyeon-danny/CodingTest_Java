@@ -1,30 +1,30 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-
-        List<Integer> result = new ArrayList<>();
-
-        int prev = 0;
-        int count = 0;
-
-        for (int i = 0; i < progresses.length; i++) {
-
-            int day = (100 - progresses[i] + speeds[i] - 1) / speeds[i];
-
-            if (day > prev) {
-                if (count > 0) result.add(count);
-                prev = day;
-                count = 1;
-            } else {
-                count++;
-            }
+        int len = speeds.length;
+        int[] rests = new int[len];
+        for (int i = 0; i < len; i++) {
+            rests[i] = (100 - progresses[i]) / speeds[i] + ((100 - progresses[i]) % speeds[i] > 0 ? 1 : 0);
         }
-
-        result.add(count);
-
-        return result.stream().mapToInt(i -> i).toArray();
+        int temp = 1;
+        int max = rests[0];
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int i = 1; i < len; i++) {
+            if (max >= rests[i]) {
+                temp++;
+                continue;
+            }
+            arr.add(temp);
+            max = rests[i];
+            temp = 1;
+        }
+        arr.add(temp);
+        int[] answer = new int[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            answer[i] = arr.get(i);
+        }
+        return answer;
     }
-
 }
